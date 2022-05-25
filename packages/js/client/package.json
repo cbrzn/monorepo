@@ -16,7 +16,7 @@
     "prebuild": "ts-node ./scripts/extractPluginConfigs.ts",
     "lint": "eslint --color -c ../../../.eslintrc.js src/",
     "test": "jest --passWithNoTests --runInBand --verbose=true --detectOpenHandles --forceExit",
-    "test:ci": "jest --passWithNoTests --runInBand --verbose --detectOpenHandles --forceExit",
+    "test:ci": "jest --passWithNoTests --runInBand --verbose --detectOpenHandles --forceExit --coverage",
     "test:watch": "jest --watch --passWithNoTests --verbose --detectOpenHandles"
   },
   "dependencies": {

@@ -81,6 +81,11 @@ jobs:
       - name: Test
         run: yarn test:core
 
+      - uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
+
   Test-Plugins:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -116,6 +121,11 @@ jobs:
 
       - name: Test
         run: yarn test:plugins
+
+      - uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
 
   Test-Client:
     runs-on: ubuntu-latest
@@ -153,6 +163,11 @@ jobs:
       - name: Test
         run: yarn test:client
 
+      - uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
+
   Test-Cli:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -188,6 +203,11 @@ jobs:
 
       - name: Test
         run: yarn test:cli
+
+      - uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
 
 # NOTE: Mac & Windows CI is not currently possible, since GitHub Actions does not
 # use "Docker Enterprise". Docker Enterprise is required when running linux based
