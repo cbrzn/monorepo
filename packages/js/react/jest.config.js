@@ -1,5 +1,6 @@
 module.exports = {
   collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.ts'],
   preset: "ts-jest",
   testMatch: ["**/?(*.)+(spec|test).[jt]s?(x)"],
   modulePathIgnorePatterns: ['./src/__tests__/simple-storage-api'],
