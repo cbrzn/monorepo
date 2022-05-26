@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['src/{!(__tests__),}/*.ts'],
   preset: "ts-jest",
   testEnvironment: "node",
   testMatch: ["**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"],
