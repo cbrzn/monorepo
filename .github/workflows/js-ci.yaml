@@ -138,8 +138,8 @@ jobs:
         with:
           coverageLocations: |
             ${{github.workspace}}/packages/js/plugins/ethereum/coverage/lcov.info:lcov
-            ${{github.workspace}}/packages/js/plugins/fs/coverage/lcov.info:lcov
             ${{github.workspace}}/packages/js/plugins/graph-node/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/filesystem/coverage/lcov.info:lcov
             ${{github.workspace}}/packages/js/plugins/http/coverage/lcov.info:lcov
             ${{github.workspace}}/packages/js/plugins/logger/coverage/lcov.info:lcov
             ${{github.workspace}}/packages/js/plugins/sha3/coverage/lcov.info:lcov
