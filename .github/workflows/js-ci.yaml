@@ -81,6 +81,20 @@ jobs:
       - name: Test
         run: yarn test:core
 
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_PROJECT_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/packages/js/core/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/schema/bind/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/schema/compose/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/schema/parse/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/react/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/validation/coverage/lcov.info:lcov
+
+
   Test-Plugins:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -117,6 +131,20 @@ jobs:
       - name: Test
         run: yarn test:plugins
 
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_PROJECT_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/packages/js/plugins/ethereum/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/fs/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/graph-node/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/http/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/logger/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/sha3/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/js/plugins/uts46/coverage/lcov.info:lcov
+
   Test-Client:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -152,6 +180,14 @@ jobs:
 
       - name: Test
         run: yarn test:client
+
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_PROJECT_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/packages/js/client/coverage/lcov.info:lcov 
 
   Test-Cli:
     runs-on: ubuntu-latest
@@ -198,6 +234,14 @@ jobs:
 
       - name: Test
         run: yarn test:cli
+
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_PROJECT_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/packages/cli/coverage/lcov.info:lcov
 
 # NOTE: Mac & Windows CI is not currently possible, since GitHub Actions does not
 # use "Docker Enterprise". Docker Enterprise is required when running linux based

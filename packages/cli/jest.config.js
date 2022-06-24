@@ -18,4 +18,5 @@ module.exports = {
     "<rootDir>/src/__tests__/project/.polywrap"
   ],
   setupFilesAfterEnv: ["./jest.setup.js"],
+  coverageReporters: [['lcov', { projectRoot: '../..' }]]
 };

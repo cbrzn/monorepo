@@ -17,5 +17,6 @@ module.exports = {
   transformIgnorePatterns: [
     "<rootDir>/src/__tests__/integration"
   ],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  coverageReporters: [['lcov', { projectRoot: '../../../..' }]]
 }
