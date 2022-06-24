@@ -24,7 +24,7 @@
     "build:fast": "rimraf ./build && tsc --project tsconfig.build.json",
     "lint": "eslint --color -c ../../.eslintrc.js .",
     "test": "cross-env TEST=true jest --passWithNoTests --runInBand --verbose",
-    "test:ci": "cross-env TEST=true jest --passWithNoTests --runInBand --verbose",
+    "test:ci": "cross-env TEST=true jest --passWithNoTests --runInBand --verbose --coverage",
     "test:watch": "cross-env TEST=true jest --watch --passWithNoTests --verbose"
   },
   "resolutions": {
