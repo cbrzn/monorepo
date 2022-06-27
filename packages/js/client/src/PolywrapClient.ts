@@ -117,6 +117,10 @@ export class PolywrapClient implements Client {
     }
   }
 
+  public coolFunctionNotTests(): string {
+    return "this is not tested";
+  }
+
   public setTracingEnabled(enable: boolean): void {
     if (enable) {
       Tracer.enableTracing("PolywrapClient");
