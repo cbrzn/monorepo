@@ -1,5 +1,9 @@
 module.exports = {
   collectCoverage: true,
+  coverageDirectory: "../../../coverage/core",
+  coverageReporters: [
+    ['lcov', { file: 'schema-bind.info'}]
+  ],
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ["**/?(*.)+(spec|test).[jt]s?(x)"],

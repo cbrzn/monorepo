@@ -1,5 +1,9 @@
 module.exports = {
   collectCoverage: true,
+  coverageDirectory: "../../../coverage/cli",
+  coverageReporters: [
+    ['lcov', { file: 'cli.info'}]
+  ],
   preset: "ts-jest",
   testEnvironment: "node",
   testMatch: ["**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"],

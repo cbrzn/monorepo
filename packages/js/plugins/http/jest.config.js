@@ -18,5 +18,10 @@ module.exports = {
   transformIgnorePatterns: [
     "<rootDir>/src/__tests__/e2e/integration/"
   ],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  collectCoverage: true,
+  coverageDirectory: "../../../../coverage/plugins",
+  coverageReporters: [
+    ['lcov', { file: 'http.info'}]
+  ]
 }

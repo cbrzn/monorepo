@@ -8,4 +8,9 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
   testEnvironment: "node",
+  collectCoverage: true,
+  coverageDirectory: "../../../../../coverage/plugins",
+  coverageReporters: [
+    ['lcov', { file: 'ens-uri-resolver.info'}]
+  ],
 };

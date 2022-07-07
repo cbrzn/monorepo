@@ -9,4 +9,9 @@ module.exports = {
       diagnostics: false,
     },
   },
+  collectCoverage: true,
+  coverageDirectory: "../../../../../coverage/plugins",
+  coverageReporters: [
+    ['lcov', { file: 'ipfs-uri-resolver.info'}]
+  ],
 };
