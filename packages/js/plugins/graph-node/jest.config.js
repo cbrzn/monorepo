@@ -8,5 +8,10 @@ module.exports = {
   "transform": {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  collectCoverage: true,
+  coverageDirectory: "../../../../coverage/plugins",
+  coverageReporters: [
+    ['lcov', { file: 'graph-node.info'}]
+  ],
 }

@@ -1,5 +1,11 @@
 name: JS-CI
 
+env:
+  core-coverage: ${{github.workspace}}/coverage/core
+  cli-coverage: ${{github.workspace}}/coverage/cli
+  client-coverage: ${{github.workspace}}/coverage/client
+  plugins-coverage: ${{github.workspace}}/coverage/plugins
+
 on: 
   push:
     branches:
@@ -80,6 +86,15 @@ jobs:
       - name: Test
         run: yarn test:core
 
+      - name: Core Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ${{env.core-coverage}}
+          working-directory: ${{env.core-coverage}}
+          files: ./schema-bind.info,./schema-parse.info,./schema-compose.info,./core-js.info,./asyncify-js.info,./wrap-manifests-js.info,./polywrap-manifests-js.info,./react.info,./validation.info,./msgpack.info
+          flags: Core
+
+
   Test-Plugins:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -116,6 +131,14 @@ jobs:
       - name: Test
         run: yarn test:plugins
 
+      - name: Plugins Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ${{env.plugins-coverage}}
+          working-directory: ${{env.plugins-coverage}}
+          files: ./ens-uri-resolver.info,./ethereum.info,./filesystem.info,./filesystem-uri-resolver.info,./graph-node.info,./http.info,./ipfs.info,./ipfs-uri-resolver.info,./logger.info,./sha3.info,./uts46.info
+          flags: Plugins
+
   Test-Client:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -151,6 +174,15 @@ jobs:
 
       - name: Test
         run: yarn test:client
+
+      - name: Client JS Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ${{env.client-coverage}}
+          working-directory: ${{env.client-coverage}}
+          files: ./client.info
+          flags: Client JS
+
 
   Test-Cli:
     runs-on: ubuntu-latest
@@ -197,6 +229,15 @@ jobs:
 
       - name: Test
         run: yarn test:cli
+
+      - name: CLI Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ${{env.cli-coverage}}
+          working-directory: ${{env.cli-coverage}}
+          files: ./cli.info
+          flags: CLI
+
 
 # NOTE: Mac & Windows CI is not currently possible, since GitHub Actions does not
 # use "Docker Enterprise". Docker Enterprise is required when running linux based
