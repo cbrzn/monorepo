@@ -90,6 +90,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           directory: ${{env.core-coverage}}
+          working-directory: ${{env.core-coverage}}
           files: ./schema-bind.info,./schema-parse.info,./schema-compose.info,./core-js.info,./asyncify-js.info,./wrap-manifests-js.info,./polywrap-manifests-js.info,./react.info,./validation.info,./msgpack.info
           flags: Core
 
@@ -134,6 +135,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           directory: ${{env.plugins-coverage}}
+          working-directory: ${{env.plugins-coverage}}
           files: ./ens-uri-resolver.info,./ethereum.info,./filesystem.info,./filesystem-uri-resolver.info,./graph-node.info,./http.info,./ipfs.info,./ipfs-uri-resolver.info,./logger.info,./sha3.info,./uts46.info
           flags: Plugins
 
@@ -177,6 +179,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           directory: ${{env.client-coverage}}
+          working-directory: ${{env.client-coverage}}
           files: ./client.info
           flags: Client JS
 
@@ -231,6 +234,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           directory: ${{env.cli-coverage}}
+          working-directory: ${{env.cli-coverage}}
           files: ./cli.info
           flags: CLI
 

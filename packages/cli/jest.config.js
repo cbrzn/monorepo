@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  coverageDirectory: "../../../coverage/cli",
+  coverageDirectory: "../../coverage/cli",
   coverageReporters: [
     ['lcov', { file: 'cli.info'}]
   ],
