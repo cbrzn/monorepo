@@ -4,4 +4,5 @@ type ImportedBaseType {
 
 type ImportedDerivedType implements ImportedBaseType {
   mapOfValueArr: Map! @annotate(type: "Map<String!, Array<Int!>!>!")
+  optionalMap: Map @annotate(type: "Map<String!, String!>")
 }

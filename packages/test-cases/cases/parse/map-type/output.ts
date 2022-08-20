@@ -1,4 +1,4 @@
-import {
+    import {
   createArrayDefinition,
   createMapKeyDefinition,
   createMapPropertyDefinition,
@@ -57,6 +57,20 @@ export const abi: WrapAbi = {
           }),
           required: true
         }),
+        createMapPropertyDefinition({
+          name: "optionalMap",
+          type: "Map<String, String>",
+          key: createMapKeyDefinition({
+            name: "optionalMap",
+            type: "String",
+            required: true
+          }),
+          value: createScalarDefinition({
+            name: "optionalMap",
+            type: "String",
+            required: true
+          }),
+        })
       ],
     },
     {

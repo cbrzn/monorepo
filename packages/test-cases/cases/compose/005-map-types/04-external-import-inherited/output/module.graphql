@@ -51,6 +51,7 @@ type Module @imports(
 
 type CustomType implements Base_ImportedBaseType {
   requiredMap: Map! @annotate(type: "Map<String!, Int!>!")
+  optionalMap: Map @annotate(type: "Map<String!, String!>")
 }
 
 ### Imported Modules START ###
@@ -65,6 +66,7 @@ type Base_ImportedBaseType @imported(
   nativeType: "ImportedBaseType"
 ) {
   requiredMap: Map! @annotate(type: "Map<String!, Int!>!")
+  optionalMap: Map @annotate(type: "Map<String!, String!>")
 }
 
 type Derived_ImportedDerivedType implements Derived_ImportedBaseType @imported(

@@ -28,6 +28,7 @@ function sanitizeObj(obj: unknown) {
 
 describe("Polywrap Schema Composer Test Cases", () => {
   let cases = fetchTestCases();
+  cases = cases.filter(c => c.name === "005-map-types 04-external-import-inherited")
   for (const test of cases) {
     it(`Case: ${test.name}`, async () => {
       const testCase = await test.promise;

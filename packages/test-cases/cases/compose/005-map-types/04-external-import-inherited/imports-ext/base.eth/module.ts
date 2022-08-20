@@ -36,6 +36,33 @@ export const abi: WrapAbi = {
               kind: 4
             }
           }
+        },
+        {
+          name: "optionalMap",
+          type: "Map<String, String>",
+          kind: 34,
+          map: {
+            key: {
+              kind: 4,
+              name: "optionalMap",
+              type: "String"
+            },
+            kind: 262146,
+            name: "optionalMap",
+            scalar: {
+              kind: 4,
+              name: "optionalMap",
+              required: true,
+              type: "String"
+            },
+            type: "Map<String, String>",
+            value: {
+              kind: 4,
+              name: "optionalMap",
+              required: true,
+              type: "String"
+            }
+          },
         }
       ],
       interfaces: []

@@ -55,6 +55,7 @@ type DerivedType implements BaseType {
 
 type ImportedDerivedType implements ImportedBaseType {
   mapOfValueArr: Map! @annotate(type: "Map<String!, [Int!]!>!")
+  optionalMap: Map @annotate(type: "Map<String!, String!>")
   requiredMap: Map! @annotate(type: "Map<String!, Int!>!")
 }
 

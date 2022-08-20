@@ -123,6 +123,22 @@ export const abi: WrapAbi = {
         },
         {
           ...createMapPropertyDefinition({
+            name: "optionalMap",
+            type: "Map<String, String>",
+            key: createMapKeyDefinition({
+              name: "optionalMap",
+              type: "String",
+              required: true
+            }),
+            value: createScalarDefinition({
+              name: "optionalMap",
+              type: "String",
+              required: true,
+            }),
+          })
+        },
+        {
+          ...createMapPropertyDefinition({
             name: "requiredMap",
             type: "Map<String, Int>",
             key: createMapKeyDefinition({
