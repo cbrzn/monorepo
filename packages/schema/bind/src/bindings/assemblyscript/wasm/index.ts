@@ -8,6 +8,7 @@ import {
   addFirstLast,
   extendType,
   toPrefixedGraphQLType,
+  moduleHasEnv,
 } from "@polywrap/schema-parse";
 import { OutputEntry, readDirectorySync } from "@polywrap/os-js";
 import path from "path";
@@ -186,6 +187,7 @@ function applyTransforms(abi: WrapAbi): WrapAbi {
     extendType(Functions),
     addFirstLast,
     toPrefixedGraphQLType,
+    moduleHasEnv(),
   ];
 
   for (const transform of transforms) {

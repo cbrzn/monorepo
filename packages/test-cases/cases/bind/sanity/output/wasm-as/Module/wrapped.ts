@@ -1,11 +1,5 @@
 import { wrap_load_env } from "@polywrap/wasm-as";
 import {
-  moduleMethod,
-  objectMethod,
-  optionalEnvMethod,
-  _if
-} from "../../index";
-import {
   deserializemoduleMethodArgs,
   serializemoduleMethodResult,
   deserializeobjectMethodArgs,
@@ -15,12 +9,13 @@ import {
   deserializeifArgs,
   serializeifResult
 } from "./serialization";
+import { IModule } from "./module";
 import * as Types from "..";
 
-export function moduleMethodWrapped(argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
+export function moduleMethodWrapped(module: IModule, argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
   const args = deserializemoduleMethodArgs(argsBuf);
 
-  const result = moduleMethod(
+  const result = module.moduleMethod(
     {
       str: args.str,
       optStr: args.optStr,
@@ -38,51 +33,48 @@ export function moduleMethodWrapped(argsBuf: ArrayBuffer, env_size: u32): ArrayB
   return serializemoduleMethodResult(result);
 }
 
-export function objectMethodWrapped(argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
+export function objectMethodWrapped(module: IModule, argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
   if (env_size == 0) {
     throw new Error("Environment is not set, and it is required by method 'objectMethod'")
   }
   
   const envBuf = wrap_load_env(env_size);
-  const env = Types.Env.fromBuffer(envBuf);
+  module.__setEnv__(Types.Env.fromBuffer(envBuf));
   const args = deserializeobjectMethodArgs(argsBuf);
 
-  const result = objectMethod(
+  const result = module.objectMethod(
     {
       object: args.object,
       optObject: args.optObject,
       objectArray: args.objectArray,
       optObjectArray: args.optObjectArray
-    },
-    env
+    }
   );
   return serializeobjectMethodResult(result);
 }
 
-export function optionalEnvMethodWrapped(argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
-  let env: Types.Env | null = null;
+export function optionalEnvMethodWrapped(module: IModule, argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
   if (env_size > 0) {
     const envBuf = wrap_load_env(env_size);
-    env = Types.Env.fromBuffer(envBuf);
+    module.__setEnv__(Types.Env.fromBuffer(envBuf));
   }
   const args = deserializeoptionalEnvMethodArgs(argsBuf);
 
-  const result = optionalEnvMethod(
+  const result = module.optionalEnvMethod(
     {
       object: args.object,
       optObject: args.optObject,
       objectArray: args.objectArray,
       optObjectArray: args.optObjectArray
-    },
-    env
+    }
   );
   return serializeoptionalEnvMethodResult(result);
 }
 
-export function ifWrapped(argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
+export function ifWrapped(module: IModule, argsBuf: ArrayBuffer, env_size: u32): ArrayBuffer {
   const args = deserializeifArgs(argsBuf);
 
-  const result = _if(
+  const result = module._if(
     {
       _if: args._if
     }
