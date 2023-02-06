@@ -80,16 +80,10 @@ $snippet: stopTestEnvironment
 $snippet: buildWrapper
 ```
 
-### buildAndDeployWrapper
+### deployWrapper
 
 ```typescript
-$snippet: buildAndDeployWrapper
-```
-
-### buildAndDeployWrapperToHttp
-
-```typescript
-$snippet: buildAndDeployWrapperToHttp
+$snippet: deployWrapper
 ```
 
 ### runCLI
